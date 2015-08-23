@@ -11,6 +11,7 @@ makeCacheMatrix <- function(x = matrix()) {
 	# set or create the matrix 
 	set <- function(z) {
 	x <<- z
+	cache <- NULL
 	}
 
 	# get the value of the matrix
@@ -47,6 +48,9 @@ cacheSolve <- function(x, ...) {
 	# create matrix since it does not exist
 	matrix <- x$get()
 
+
+	# set the inverse of matrix to cache
+	cache <- solve(matrix, ...)
 
 	# set inverted matrix in cache
 	x$setMatrix(cache)
